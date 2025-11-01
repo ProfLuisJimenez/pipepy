@@ -1,3 +1,5 @@
+Luis Eduardo Jiménez
+
 # Generador Simple de Pipeline para GitHub Actions
 
 Este proyecto contiene un script Python interactivo que te ayuda a crear un archivo de pipeline de GitHub Actions para ejecutar tests de tu proyecto.
@@ -16,5 +18,6 @@ Este proyecto contiene un script Python interactivo que te ayuda a crear un arch
 
 ## Requisitos
 - Python 3.7 o superior
+
 
 
