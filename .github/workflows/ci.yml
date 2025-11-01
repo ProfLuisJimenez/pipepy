@@ -20,8 +20,12 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
+    - name: Instalar herramienta de análisis estático
+      run: pip install flake8
     - name: Análisis de código estático (flake8)
       run: flake8 .
+    - name: Instalar herramienta de análisis de seguridad
+      run: pip install bandit
     - name: Análisis de seguridad (bandit)
       run: bandit .
     - name: Ejecutar tests
