@@ -19,20 +19,28 @@ if usar_test.lower() == 's':
 # ANALISIS ESTATICO
 usar_linter = input("¿Quieres análisis de código estático? (S/n): ") or "s"
 steps_linter = ''
+linter_pkg = ''
 if usar_linter.lower() == 's':
     linter = input("¿Qué herramienta usarás para código estático? ('flake8', 'pylint', etc. por defecto: 'flake8'): ") or "flake8"
+    linter_pkg = linter.split()[0]
     cmd_linter = input(f"Comando para análisis estático (por defecto: '{linter} .'): ") or f"{linter} ."
     steps_linter = f"""
+    - name: Instalar herramienta de análisis estático
+      run: pip install {linter_pkg}
     - name: Análisis de código estático ({linter})
       run: {cmd_linter}"""
 
 # ANALISIS DE SEGURIDAD
 usar_security = input("¿Quieres análisis de seguridad? (S/n): ") or "s"
 steps_security = ''
+security_pkg = ''
 if usar_security.lower() == 's':
     security = input("¿Herramienta para análisis de seguridad ('bandit', 'safety', etc. por defecto: 'bandit'): ") or "bandit"
+    security_pkg = security.split()[0]
     cmd_security = input(f"Comando para análisis de seguridad (por defecto: '{security} .'): ") or f"{security} ."
     steps_security = f"""
+    - name: Instalar herramienta de análisis de seguridad
+      run: pip install {security_pkg}
     - name: Análisis de seguridad ({security})
       run: {cmd_security}"""
 
